@@ -1,0 +1,12 @@
+<html>
+<head>
+
+</head>
+
+<body>
+
+<script type="text/javascript">window.onload = function() {window.top.location = "tokopedia://product/220871478?utm_source=Android&utm_medium=Share&utm_campaign=Product%20Share&utm_content=Line&link_click_id=452398915974724500";setTimeout(function timeout() {window.top.location = "market://details?id=com.tokopedia.tkpd&_branch_match_id=452398915974724500&referrer=link_click_id%3D452398915974724500";}, 750);};</script>
+
+</body>
+
+</html>
