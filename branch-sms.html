@@ -11,8 +11,8 @@
                 var phone = '+918310003574';
                 var linkData = {
                     tags: ['test-tag'],
-                    channel: 'Website-2ch',
-                    campaign: 'Website-2ca',
+                    channel: 'Website-3ch',
+                    campaign: 'Website-3ca',
                     feature: 'TextMeTheApp',
                     data: {
                         'foo': 'bar'
@@ -27,7 +27,7 @@
                         alert("SMS sent!");
                     }
                 };
-                branch.sendSMS(phone.toString(), linkData, options, callback);
+                branch.sendSMS(phone.toString(), linkData, options, callback, {make_new_link: true});
             }
         </script>
   
