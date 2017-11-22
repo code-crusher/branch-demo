@@ -11,6 +11,23 @@
 <br>
 
 <a href="https://code-crusher.github.io/branch-demo/">https://code-crusher.github.io/branch-demo/</a>
+</br>
+<input id="clickMe" type="button" value="clickme" onclick="topDownloadBtnClick();" />
+  
+<script>
+  document.getElementById("clickMe").onclick = topDownloadBtnClick;
+    
+  function topDownloadBtnClick() {
+      window.location.href='https://teflylife.app.link/share';
+  }
+  
+  var el = document.getElementById("clickMe");
+if (el.addEventListener)
+    el.addEventListener("click", topDownloadBtnClick, false);
+else if (el.attachEvent)
+    el.attachEvent('onclick', topDownloadBtnClick);
+</script>
+
 
 </body>
 
