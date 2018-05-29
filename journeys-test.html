@@ -10,7 +10,9 @@
     // init Branch
     branch.init('key_live_hkDytPACtipny3N9XmnbZlapBDdj4WIL', { auto_open:true });
 
-	var listener = function(event) { console.log(event); }
+	var listener = function(event) { 
+alert("" + event);
+console.log(event); }
 	// Specify an event to listen for
 	branch.addListener('didClickJourneyCTA', listener);
 	// Listen for all events
