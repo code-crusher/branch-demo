@@ -40,11 +40,17 @@ var listener = function(event, data) {
 		
 	
 str = JSON.stringify(data, null, 2); // (Optional) beautiful indented output.
+var son = JSON.parse(data);
+for(var i = 0; i < jsonObj.length; i++)
+{
+    console.log("my_data = " + jsonObj[i]['my_data']);
+}
+	
 console.log(str);
 console.log(data);
 console.log(event); 
 	
-alert(event + "   ///   " + str);
+alert(event + "   ///   " + str.journey_link_data);
 
 	
 }
