@@ -12,7 +12,7 @@
 
 	var listener = function(event, data) { 
 		
-alert(event + "   ///   " + data);
+alert(event + "   ///   " + data.journey_link_data.my_data);
 console.log(event); }
 	// Specify an event to listen for
 	branch.addListener('didClickJourneyCTA', listener);
