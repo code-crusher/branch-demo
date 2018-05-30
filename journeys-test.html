@@ -1,65 +1,59 @@
+<!DOCTYPE html>
 <html>
 <head>
- <meta name="viewport" content="width=device-width, initial-scale=1">
- <meta name="branch:deeplink:$ios_deeplink_path" content="shop/12345" />
-<meta http-equiv=“Content-Security-Policy” content=“default-src 'self'; script-src 'self' https://*.google.io;“>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="branch:deeplink:$ios_deeplink_path" content="shop/12345" />
+    <meta http-equiv=“Content-Security-Policy” content=“default-src 'self'; script-src 'self' https://*.google.io;“>
 
-<script>
-    // load Branch
-    (function(b,r,a,n,c,h,_,s,d,k){if(!b[n]||!b[n]._q){for(;s<_.length;)c(h,_[s++]);d=r.createElement(a);d.async=1;d.src="https://cdn.branch.io/branch-latest.min.js";k=r.getElementsByTagName(a)[0];k.parentNode.insertBefore(d,k);b[n]=h}})(window,document,"script","branch",function(b,r){b[r]=function(){b._q.push([r,arguments])}},{_q:[],_v:1},"addListener applyCode autoAppIndex banner closeBanner closeJourney creditHistory credits data deepview deepviewCta first getCode init link logout redeem referrals removeListener sendSMS setBranchViewData setIdentity track validateCode trackCommerceEvent".split(" "), 0);
-    // init Branch
-    branch.init('key_live_hkDytPACtipny3N9XmnbZlapBDdj4WIL', { auto_open:true });
-</script>
+    <script>
+        // load Branch
+        (function(b,r,a,n,c,h,_,s,d,k){if(!b[n]||!b[n]._q){for(;s<_.length;)c(h,_[s++]);d=r.createElement(a);d.async=1;d.src="https://cdn.branch.io/branch-latest.min.js";k=r.getElementsByTagName(a)[0];k.parentNode.insertBefore(d,k);b[n]=h}})(window,document,"script","branch",function(b,r){b[r]=function(){b._q.push([r,arguments])}},{_q:[],_v:1},"addListener applyCode autoAppIndex banner closeBanner closeJourney creditHistory credits data deepview deepviewCta first getCode init link logout redeem referrals removeListener sendSMS setBranchViewData setIdentity track validateCode trackCommerceEvent".split(" "), 0);
+        // init Branch
+        branch.init('key_live_hkDytPACtipny3N9XmnbZlapBDdj4WIL', { auto_open:true });
+    </script>
 
 </head>
 <body>
 <script type="text/javascript">
-function launchJourneys(){
+    function launchJourneys(){
+        var linkData = {
+            campaign: 'content 123',
+            channel: 'facebook',
+            feature: 'dashboard',
+            stage: 'new user',
+            tags: [ 'tag1', 'tag2', 'tag3' ],
+            alias: '',
+            data: {
+                'custom_bool': true,
+                'custom_int': Date.now(),
+                'custom_string': 'hello',
+                '$og_title': 'Title',
+                '$uri_redirect_mode': 2,
+                '$og_image_url':'http://lorempixel.com/400/400',
+                '$ios_deeplink_path':'shop/1234123125'
+            }
+        };
+        branch.setBranchViewData(linkData);
+    }
 
-  var linkData = {
-  campaign: 'content 123',
-  channel: 'facebook',
-  feature: 'dashboard',
-  stage: 'new user',
-  tags: [ 'tag1', 'tag2', 'tag3' ],
-  alias: '',
-  data: {
-    'custom_bool': true,
-    'custom_int': Date.now(),
-    'custom_string': 'hello',
-    '$og_title': 'Title',
-    '$uri_redirect_mode': 2,
-    '$og_image_url':'http://lorempixel.com/400/400',
-    '$ios_deeplink_path':'shop/1234123125'
-  }
-};
-    branch.setBranchViewData(linkData);
-}
-		
-var listener = function(event, data) { 
-		
-	
-str = JSON.stringify(data, null, 2); // (Optional) beautiful indented output.
-var son = JSON.parse(data);
-for(var i = 0; i < jsonObj.length; i++)
-{
-    console.log("my_data = " + jsonObj[i]['my_data']);
-}
-	
-console.log(str);
-console.log(data);
-console.log(event); 
-	
-alert(event + "   ///   " + str.journey_link_data);
+    var listener = function(event, data) {
 
-	
-}
+        if(event == "didClickJourneyCTA"){
 
-// Specify an event to listen for
-branch.addListener('didClickJourneyCTA', listener);
-// Listen for all events
-branch.addListener(listener);
-		
+        str = JSON.stringify(data, null, 2); // (Optional) beautiful indented output.
+
+        var qwe = data.journey_link_data.data.my_data;
+
+        window.location = qwe;
+
+        }
+    }
+
+    // Specify an event to listen for
+    branch.addListener('didClickJourneyCTA', listener);
+    // Listen for all events
+    branch.addListener(listener);
+
 </script>
 
 </body>
