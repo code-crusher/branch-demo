@@ -4,20 +4,17 @@
  <meta name="branch:deeplink:$ios_deeplink_path" content="shop/12345" />
 <meta http-equiv=“Content-Security-Policy” content=“default-src 'self'; script-src 'self' https://*.google.io;“>
 
- <script>
+<script>
     // load Branch
     (function(b,r,a,n,c,h,_,s,d,k){if(!b[n]||!b[n]._q){for(;s<_.length;)c(h,_[s++]);d=r.createElement(a);d.async=1;d.src="https://cdn.branch.io/branch-latest.min.js";k=r.getElementsByTagName(a)[0];k.parentNode.insertBefore(d,k);b[n]=h}})(window,document,"script","branch",function(b,r){b[r]=function(){b._q.push([r,arguments])}},{_q:[],_v:1},"addListener applyCode autoAppIndex banner closeBanner closeJourney creditHistory credits data deepview deepviewCta first getCode init link logout redeem referrals removeListener sendSMS setBranchViewData setIdentity track validateCode trackCommerceEvent".split(" "), 0);
     // init Branch
     branch.init('key_live_hkDytPACtipny3N9XmnbZlapBDdj4WIL', { auto_open:true });
-
-
 </script>
 
 </head>
 <body>
-	<script type="text/javascript">
-	
-	function launchJourneys(){
+<script type="text/javascript">
+function launchJourneys(){
 
   var linkData = {
   campaign: 'content 123',
@@ -32,19 +29,21 @@
     'custom_string': 'hello',
     '$og_title': 'Title',
     '$uri_redirect_mode': 2
-    '$og_description': 'Description',
     '$og_image_url':'http://lorempixel.com/400/400',
     '$ios_deeplink_path':'shop/1234123125'
   }
 };
-
-branch.setBranchViewData(linkData);}
+    branch.setBranchViewData(linkData);
+}
 		
 var listener = function(event, data) { 
 		
 alert(event + "   ///   " + data.journey_link_data.my_data);
 console.log(data);
-console.log(event); }
+console.log(event); 
+	
+}
+
 // Specify an event to listen for
 branch.addListener('didClickJourneyCTA', listener);
 // Listen for all events
