@@ -10,14 +10,7 @@
     // init Branch
     branch.init('key_live_hkDytPACtipny3N9XmnbZlapBDdj4WIL', { auto_open:true });
 
-	var listener = function(event, data) { 
-		
-alert(event + "   ///   " + data.journey_link_data.my_data);
-console.log(event); }
-	// Specify an event to listen for
-	branch.addListener('didClickJourneyCTA', listener);
-	// Listen for all events
-	branch.addListener(listener);
+
 </script>
 
 </head>
@@ -45,9 +38,18 @@ console.log(event); }
   }
 };
 
-branch.setBranchViewData(linkData);
-	}
-        </script>
+branch.setBranchViewData(linkData);}
+		
+var listener = function(event, data) { 
+		
+alert(event + "   ///   " + data.journey_link_data.my_data);
+console.log(event); }
+// Specify an event to listen for
+branch.addListener('didClickJourneyCTA', listener);
+// Listen for all events
+branch.addListener(listener);
+		
+</script>
 
 </body>
 </html>
