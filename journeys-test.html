@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <div class="branch-journeys-top"></div>
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="branch:deeplink:$ios_deeplink_path" content="shop/12345"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
@@ -26,7 +28,7 @@
             _v: 1
         }, "addListener applyCode autoAppIndex banner closeBanner closeJourney creditHistory credits data deepview deepviewCta first getCode init link logout redeem referrals removeListener sendSMS setBranchViewData setIdentity track validateCode trackCommerceEvent".split(" "), 0);
         // init Branch
-        branch.init('key_test_jpAAsHxzDjint6I30mkBZjeewAki21R7', {auto_open: true});
+        branch.init('key_test_lkgYPVDLW7NOfVdflieB3hdptDnQVdaN', {auto_open: true});
     </script>
 
 </head>
@@ -49,7 +51,7 @@
                 '$ios_deeplink_path': 'shop/1234123125'
             }
         };
-        branch.setBranchViewData(linkData);
+        //branch.setBranchViewData(linkData);
     }
 
     var listener = function (event, data) {
@@ -58,7 +60,7 @@
             str = JSON.stringify(data, null, 2);
 
             //get link URL from the Journey data set in the Branch dashboard
-            var qwe = data.journey_link_data.data.my_data;
+            //var qwe = data.journey_link_data.data.my_data;
 
             //create a new Branch link using the link above
             //     var linkData = {
@@ -88,7 +90,7 @@
             //     });
 
 
-            var qqe = 'https://branchster.app.link/?'+ encodeURI('$fallback_url='+qwe+'&$web_only=true&campaign=branchApsalar&feature=Journeys');
+            //var qqe = 'https://branchster.app.link/?'+ encodeURI('$fallback_url='+qwe+'&$web_only=true&campaign=branchApsalar&feature=Journeys');
             //$(location).attr('href', qqe)
         }
     }
