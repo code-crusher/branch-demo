@@ -103,6 +103,15 @@
     // Listen for all events
     branch.addListener(listener);
 
+    hideBanner(){
+     var banner = document.getElementbyId('branch-banner-iframe');
+                x.style.display = "none";
+    }
+    
+    showBanner(){
+            var banner = document.getElementbyId('branch-banner-iframe');
+                x.style.display = "overflow: hidden; top: 0px";
+    }
 
 </script>
 
