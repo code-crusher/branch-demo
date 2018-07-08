@@ -55,6 +55,8 @@
     }
 
     var listener = function (event, data) {
+        
+        console.log(event);
 
         if (event == "willCloseJourney") {
             str = JSON.stringify(data, null, 2);
@@ -99,7 +101,7 @@
 
 
     // Specify an event to listen for
-    branch.addListener('willCloseJourney', listener);
+    //branch.addListener('willCloseJourney', listener);
     // Listen for all events
     branch.addListener(listener);
 
