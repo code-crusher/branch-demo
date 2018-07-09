@@ -29,7 +29,25 @@
         }, "addListener applyCode autoAppIndex banner closeBanner closeJourney creditHistory credits data deepview deepviewCta first getCode init link logout redeem referrals removeListener sendSMS setBranchViewData setIdentity track validateCode trackCommerceEvent".split(" "), 0);
         // init Branch
         branch.init('key_live_hkDytPACtipny3N9XmnbZlapBDdj4WIL', {auto_open: false});
-        launchJourneys();
+        var linkData = {
+            channel: 'facebook',
+            feature: 'dashboard',
+            stage: 'new user',
+            tags: ['tag1', 'tag2', 'tag3'],
+            alias: '',
+            data: {
+                '$deeplink_path':"https://code-crusher.github.io/branch-demo/journeys-test",
+                'custom_bool': true,
+                'custom_int': Date.now(),
+                'custom_string': 'hello',
+                '$og_title': 'Title',
+                '$uri_redirect_mode': 2,
+                '$og_image_url': 'http://lorempixel.com/400/400',
+                '$ios_deeplink_path': 'shop/1234123125'
+            }
+        };
+       branch.setBranchViewData(linkData);
+        //launchJourneys();
     </script>
 
 </head>
