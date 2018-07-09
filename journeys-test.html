@@ -28,7 +28,7 @@
             _v: 1
         }, "addListener applyCode autoAppIndex banner closeBanner closeJourney creditHistory credits data deepview deepviewCta first getCode init link logout redeem referrals removeListener sendSMS setBranchViewData setIdentity track validateCode trackCommerceEvent".split(" "), 0);
         // init Branch
-        branch.init('key_test_lkgYPVDLW7NOfVdflieB3hdptDnQVdaN', {auto_open: true});
+        branch.init('key_live_gimC2ehxzwjHcbyQzXQxfdmpvzcgkwsC', {auto_open: true});
     </script>
 
 </head>
@@ -42,6 +42,7 @@
             tags: ['tag1', 'tag2', 'tag3'],
             alias: '',
             data: {
+                '$deeplink'= window.location;
                 'custom_bool': true,
                 'custom_int': Date.now(),
                 'custom_string': 'hello',
