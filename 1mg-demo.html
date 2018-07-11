@@ -40,10 +40,15 @@
     <button class="button" onclick="addToCart()">Add To Cart</button>
     
     <script>
-        function addToCart() 
-        {
+        function addToCart() {
             // close the pre-loaded journeys
-            branch.closeJourney(function(err) { console.log(err); });
+            branch.closeJourney(function(err) {
+                console.log(err); 
+                var meta = document.createElement('meta');
+                meta.setAttribute('name', 'branch:deeplink:addToCart');
+                meta.setAttribute('content', 'true');
+                document.getElementsByTagName('head')[0].appendChild(meta);
+            });
             
             // inject meta tags for interstitial banner
             var meta = document.createElement('meta');
