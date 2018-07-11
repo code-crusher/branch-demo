@@ -61,6 +61,9 @@
              branch.closeJourney(function(err) {
                  console.log(err); 
              });
+             branch.track('pageview', function(err) {
+                console.log(err);
+             });
              callback();
         }
         
