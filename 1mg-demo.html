@@ -34,8 +34,16 @@
        
         // init Branch
         branch.init('key_live_kgiNT59n9w1MEHg2AB0eLnpgCycpUBIy');
-        var listener = function(event) { 
+        var listener = function(event, data) { 
             console.log(event); 
+            if (event == "didCallJourneyClose") {
+                // inject meta tags for interstitial banner
+                $('head').append('<meta name="branch:deeplink:addToCart" content="true"/>');
+            } else if (event == "didClickJourneyClose") {
+                if(data.journey_link_data.data.make_redirect == "true"){
+                    window.location.href = "https://titan.1mg.com/cart?fromBuyNow=true";
+                }
+            }
         }
         branch.addListener(listener);
     </script>
@@ -49,21 +57,19 @@
             closeCurrentBanner(alertFinished);
         }
         
-            function closeCurrentBanner(callback) {
-                branch.closeJourney(function(err) {
-                console.log(err); 
-                // inject meta tags for interstitial banner
-                $('head').append('<meta name="branch:deeplink:addToCart" content="true"/>');
-            });
-                callback();
-            }
+        function closeCurrentBanner(callback) {
+             branch.closeJourney(function(err) {
+                 console.log(err); 
+             });
+             callback();
+        }
         
-             function alertFinished(){
-                    branch.track('pageview', function(err) {
-                        console.log(err);
-                        alert(err);
-                    });
-             }
+        function alertFinished(){
+            branch.track('pageview', function(err) {
+                console.log(err);
+            });
+        }
     </script>
+    
 </body>
 </html>
