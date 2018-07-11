@@ -43,7 +43,7 @@
         function addToCart() 
         {
             // close the pre-loaded journeys
-            branch.closeJourney();
+            branch.closeJourney(function(err) { console.log(err); });
             
             // inject meta tags for interstitial banner
             var meta = document.createElement('meta');
