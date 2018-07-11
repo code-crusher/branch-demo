@@ -51,7 +51,9 @@
             meta.setAttribute('content', 'true');
             document.getElementsByTagName('head')[0].appendChild(meta);
             
-            
+            branch.track('pageview');
+            var listener = function(event) { console.log(event); }
+            branch.addListener(listener);
         }
     </script>
 </body>
