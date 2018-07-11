@@ -50,17 +50,14 @@
                 console.log(err); 
                 // inject meta tags for interstitial banner
                 $('head').append('<meta name="branch:deeplink:addToCart" content="true"/>');
-                callback();
             });
-                
+                callback();
             }
         
              function alertFinished(){
-                 setTimeout(function() {
                     branch.track('pageview');
                     var listener = function(event) { console.log(event); }
                     branch.addListener(listener);
-                 }, 100);
             }
     </script>
 </body>
