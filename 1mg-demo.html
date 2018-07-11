@@ -34,6 +34,10 @@
        
         // init Branch
         branch.init('key_live_kgiNT59n9w1MEHg2AB0eLnpgCycpUBIy');
+        var listener = function(event) { 
+            console.log(event); 
+        }
+        branch.addListener(listener);
     </script>
 </head>
 <body>    
@@ -55,8 +59,6 @@
             }
         
              function alertFinished(){
-                    var listener = function(event) { console.log(event); }
-                    branch.addListener(listener);
                     branch.track('pageview', function(err) {
                         console.log(err);
                         alert(err);
