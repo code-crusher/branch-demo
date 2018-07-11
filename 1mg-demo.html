@@ -42,24 +42,28 @@
     <script>
         function addToCart() {
             // close the pre-loaded journeys
-            branch.closeJourney(function(err) {
+            closeCurrentBanner(alertFinished);
+        }
+        
+            function closeCurrentBanner(callback) {
+                branch.closeJourney(function(err) {
                 console.log(err); 
+                // inject meta tags for interstitial banner
                 var meta = document.createElement('meta');
                 meta.setAttribute('name', 'branch:deeplink:addToCart');
                 meta.setAttribute('content', 'true');
                 document.getElementsByTagName('head')[0].appendChild(meta);
+                callback();
             });
-            
-            // inject meta tags for interstitial banner
-            var meta = document.createElement('meta');
-            meta.setAttribute('name', 'branch:deeplink:addToCart');
-            meta.setAttribute('content', 'true');
-            document.getElementsByTagName('head')[0].appendChild(meta);
-            
-            branch.track('pageview');
-            var listener = function(event) { console.log(event); }
-            branch.addListener(listener);
-        }
+                
+            }
+        
+             function alertFinished(){
+                branch.track('pageview');
+                var listener = function(event) { console.log(event); }
+                branch.addListener(listener);
+                alert('Finished my homework');
+            }
     </script>
 </body>
 </html>
