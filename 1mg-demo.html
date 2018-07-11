@@ -52,7 +52,11 @@
                     console.log(err);
                 });
             }
-
+            if (event == "willNotShowJourney") {
+                // check if the condition needs to call the next banner
+                // this callback will inform that the banner will not show, this can occur if the marketer has disabled the banner from the dashboard
+                window.location.href = "https://titan.1mg.com/cart?fromBuyNow=true";
+            }
         }
         branch.addListener(listener);
     </script>
