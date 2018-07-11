@@ -26,11 +26,30 @@
             _q: [],
             _v: 1
         }, "addListener applyCode autoAppIndex banner closeBanner closeJourney creditHistory credits data deepview deepviewCta first getCode init link logout redeem referrals removeListener sendSMS setBranchViewData setIdentity track validateCode trackCommerceEvent".split(" "), 0);
+       
         // init Branch
-      
         branch.init('key_live_kgiNT59n9w1MEHg2AB0eLnpgCycpUBIy');
     </script>
 </head>
 <body>
+    // button to mimick add to cart
+    <button onclick="addToCart()">Add To Cart</button>
+    
+    // method to execute on add to cart
+    <script>
+        function addToCart() 
+        {
+            // close the pre-loaded journeys
+            branch.closeJourney();
+            
+            // inject meta tags for interstitial banner
+            var meta = document.createElement('meta');
+            meta.setAttribute('http-equiv', 'X-UA-Compatible');
+            meta.setAttribute('content', 'IE=Edge');
+            document.getElementsByTagName('head')[0].appendChild(meta);
+            
+            
+        }
+    </script>
 </body>
 </html>
