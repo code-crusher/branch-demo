@@ -40,7 +40,7 @@
                 // check if the condition needs to add meta tags for the next
                 // inject meta tags for the next banner needed
                 $('head').append('<meta name="branch:deeplink:addToCart" content="true"/>');
-            } else if (event == "didClickJourneyClose" || event = "didClickJourneyContinue") {
+            } else if (event == "didClickJourneyClose" || event == "didClickJourneyContinue") {
                 if(data.journey_link_data.data.make_redirect == "true"){
                     window.location.href = "https://titan.1mg.com/cart?fromBuyNow=true";
                 }
