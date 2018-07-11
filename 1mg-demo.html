@@ -31,11 +31,9 @@
         branch.init('key_live_kgiNT59n9w1MEHg2AB0eLnpgCycpUBIy');
     </script>
 </head>
-<body>
-    // button to mimick add to cart
+<body>    
     <button onclick="addToCart()">Add To Cart</button>
     
-    // method to execute on add to cart
     <script>
         function addToCart() 
         {
@@ -44,8 +42,8 @@
             
             // inject meta tags for interstitial banner
             var meta = document.createElement('meta');
-            meta.setAttribute('http-equiv', 'X-UA-Compatible');
-            meta.setAttribute('content', 'IE=Edge');
+            meta.setAttribute('name', 'branch:deeplink:addToCart');
+            meta.setAttribute('content', 'true');
             document.getElementsByTagName('head')[0].appendChild(meta);
             
             
