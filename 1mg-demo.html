@@ -49,10 +49,7 @@
                 branch.closeJourney(function(err) {
                 console.log(err); 
                 // inject meta tags for interstitial banner
-                var meta = document.createElement('meta');
-                meta.setAttribute('name', 'branch:deeplink:addToCart');
-                meta.setAttribute('content', 'true');
-                document.getElementsByTagName('head')[0].appendChild(meta);
+                $('head').append('<meta name="branch:deeplink:addToCart" content="true">');
                 callback();
             });
                 
