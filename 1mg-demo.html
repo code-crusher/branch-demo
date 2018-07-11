@@ -57,8 +57,11 @@
              function alertFinished(){
                     var listener = function(event) { console.log(event); }
                     branch.addListener(listener);
-                    branch.track('pageview');
-            }
+                    branch.track('pageview', function(err) {
+                        console.log(err);
+                        alert(err);
+                    });
+             }
     </script>
 </body>
 </html>
