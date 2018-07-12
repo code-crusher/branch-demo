@@ -36,6 +36,16 @@
         branch.init('key_live_kgiNT59n9w1MEHg2AB0eLnpgCycpUBIy');
         var listener = function(event, data) { 
             console.log(event); 
+            if (event == "willShowJourney") {
+                alert(($("meta[name='branch:deeplink:addToCart']").attr('content')));
+                if(($("meta[name='branch:deeplink:addToCart']").attr('content')) == "true"){
+                   if(!data.journey_link_data.data.make_redirect){
+                        window.location.href = "https://titan.1mg.com/cart?fromBuyNow=true";
+                   }
+                }
+                  
+            }
+
             if (event == "didCallJourneyClose") {
                 // check if the condition needs to add meta tags for the next
                 // inject meta tags for the next banner needed
@@ -56,12 +66,14 @@
         branch.addListener(listener);
     </script>
 </head>
+
 <body>    
     <button class="button" onclick="addToCart()">Add To Cart</button>
     
     <script>
         function addToCart() {
             // close the pre-loaded journeys
+
             closeCurrentBanner();
         }
         
