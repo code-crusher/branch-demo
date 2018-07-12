@@ -39,6 +39,8 @@
             if (event == "willShowJourney") {
                 if(($("meta[name='branch:deeplink:addToCart']").attr('content')) == "true"){
                    if(!data.journey_link_data.data.make_redirect){
+                        var banner = document.getElementById('branch-banner-iframe');
+                        banner.style.display = "none";
                         window.location.href = "https://titan.1mg.com/cart?fromBuyNow=true";
                    }
                 }
