@@ -28,101 +28,101 @@
             _v: 1
         }, "addListener applyCode autoAppIndex banner closeBanner closeJourney creditHistory credits data deepview deepviewCta first getCode init link logout redeem referrals removeListener sendSMS setBranchViewData setIdentity track validateCode trackCommerceEvent".split(" "), 0);
         // init Branch
-        branch.init('key_live_hkDytPACtipny3N9XmnbZlapBDdj4WIL', {auto_open: false});
-        var linkData = {
-            channel: 'facebook',
-            feature: 'dashboard',
-            stage: 'new user',
-            tags: ['tag1', 'tag2', 'tag3'],
-            alias: '',
-            data: {
-                '$deeplink_path':"https://code-crusher.github.io/branch-demo/journeys-test",
-                'custom_bool': true,
-                'custom_int': Date.now(),
-                'custom_string': 'hello',
-                '$og_title': 'Title',
-                '$uri_redirect_mode': 2,
-                '$og_image_url': 'http://lorempixel.com/400/400',
-                '$ios_deeplink_path': 'shop/1234123125'
-            }
-        };
-       branch.setBranchViewData(linkData);
-        //launchJourneys();
-    </script>
+        branch.init('key_live_pcvUAwPws8GzepAPAkTATdinBsexbm3e', {auto_open: false});
+//         var linkData = {
+//             channel: 'facebook',
+//             feature: 'dashboard',
+//             stage: 'new user',
+//             tags: ['tag1', 'tag2', 'tag3'],
+//             alias: '',
+//             data: {
+//                 '$deeplink_path':"https://code-crusher.github.io/branch-demo/journeys-test",
+//                 'custom_bool': true,
+//                 'custom_int': Date.now(),
+//                 'custom_string': 'hello',
+//                 '$og_title': 'Title',
+//                 '$uri_redirect_mode': 2,
+//                 '$og_image_url': 'http://lorempixel.com/400/400',
+//                 '$ios_deeplink_path': 'shop/1234123125'
+//             }
+//         };
+//        branch.setBranchViewData(linkData);
+//         //launchJourneys();
+//     </script>
 
-</head>
-<body>
-<script type="text/javascript">
-    function launchJourneys() {
-        var linkData = {
-            channel: 'facebook',
-            feature: 'dashboard',
-            stage: 'new user',
-            tags: ['tag1', 'tag2', 'tag3'],
-            alias: '',
-            data: {
-                'custom_bool': true,
-                'custom_int': Date.now(),
-                'custom_string': 'hello',
-                '$og_title': 'Title',
-                '$uri_redirect_mode': 2,
-                '$og_image_url': 'http://lorempixel.com/400/400',
-                '$ios_deeplink_path': 'shop/1234123125'
-            }
-        };
-       branch.setBranchViewData(linkData);
-    }
+// </head>
+// <body>
+// <script type="text/javascript">
+//     function launchJourneys() {
+//         var linkData = {
+//             channel: 'facebook',
+//             feature: 'dashboard',
+//             stage: 'new user',
+//             tags: ['tag1', 'tag2', 'tag3'],
+//             alias: '',
+//             data: {
+//                 'custom_bool': true,
+//                 'custom_int': Date.now(),
+//                 'custom_string': 'hello',
+//                 '$og_title': 'Title',
+//                 '$uri_redirect_mode': 2,
+//                 '$og_image_url': 'http://lorempixel.com/400/400',
+//                 '$ios_deeplink_path': 'shop/1234123125'
+//             }
+//         };
+//        branch.setBranchViewData(linkData);
+//     }
 
-    var listener = function (event, data) {
+//     var listener = function (event, data) {
         
-        console.log(event);
+//         console.log(event);
 
-        if (event == "willCloseJourney") {
-            str = JSON.stringify(data, null, 2);
+//         if (event == "willCloseJourney") {
+//             str = JSON.stringify(data, null, 2);
 
-            //get link URL from the Journey data set in the Branch dashboard
-            //var qwe = data.journey_link_data.data.my_data;
+//             //get link URL from the Journey data set in the Branch dashboard
+//             //var qwe = data.journey_link_data.data.my_data;
 
-            //create a new Branch link using the link above
-            //     var linkData = {
-            //         campaign: data.journey_link_data.campaign,
-            //         feature: data.journey_link_data.feature,
-            //         stage: 'new user',
-            //         tags: ['tag1', 'tag2', 'tag3'],
-            //         alias: '',
-            //         data: {
-            //             'custom_bool': true,
-            //             'custom_int': Date.now(),
-            //             'custom_string': 'hello',
-            //             '$og_title': 'Title',
-            //             '$og_description': 'Description',
-            //             '$og_image_url': 'http://lorempixel.com/400/400',
-            //             '$ios_deeplink_path': data.journey_link_data.data.$ios_deeplink_path,
-            //             'my_data':data.journey_link_data.data.my_data,
-            //             '$ios_url':qwe,
-            //             '$android_url':qwe,
-            //             '$desktop_url':qwe,
-            //             '$fallback_url':qwe
-            // }
-            //     };
-            //
-            //     branch.link(linkData, function (err, link) {
-            //         console.log(link);
-            //     });
-
-
-            //var qqe = 'https://branchster.app.link/?'+ encodeURI('$fallback_url='+qwe+'&$web_only=true&campaign=branchApsalar&feature=Journeys');
-            //$(location).attr('href', qqe)
-        }
-    }
-
-    // custom domain works
+//             //create a new Branch link using the link above
+//             //     var linkData = {
+//             //         campaign: data.journey_link_data.campaign,
+//             //         feature: data.journey_link_data.feature,
+//             //         stage: 'new user',
+//             //         tags: ['tag1', 'tag2', 'tag3'],
+//             //         alias: '',
+//             //         data: {
+//             //             'custom_bool': true,
+//             //             'custom_int': Date.now(),
+//             //             'custom_string': 'hello',
+//             //             '$og_title': 'Title',
+//             //             '$og_description': 'Description',
+//             //             '$og_image_url': 'http://lorempixel.com/400/400',
+//             //             '$ios_deeplink_path': data.journey_link_data.data.$ios_deeplink_path,
+//             //             'my_data':data.journey_link_data.data.my_data,
+//             //             '$ios_url':qwe,
+//             //             '$android_url':qwe,
+//             //             '$desktop_url':qwe,
+//             //             '$fallback_url':qwe
+//             // }
+//             //     };
+//             //
+//             //     branch.link(linkData, function (err, link) {
+//             //         console.log(link);
+//             //     });
 
 
-    // Specify an event to listen for
-    //branch.addListener('willCloseJourney', listener);
-    // Listen for all events
-    branch.addListener(listener);
+//             //var qqe = 'https://branchster.app.link/?'+ encodeURI('$fallback_url='+qwe+'&$web_only=true&campaign=branchApsalar&feature=Journeys');
+//             //$(location).attr('href', qqe)
+//         }
+//     }
+
+//     // custom domain works
+
+
+//     // Specify an event to listen for
+//     //branch.addListener('willCloseJourney', listener);
+//     // Listen for all events
+//     branch.addListener(listener);
 
     function hideBanner(){
      var banner = document.getElementById('branch-banner-iframe');
