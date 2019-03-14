@@ -144,6 +144,7 @@
                 var link = $("#branch-banner-iframe");
                 var offset = link.offset();
                 var bottom = top + link.outerHeight();
+                document.getElementById("valvak").innerHTML = '' + window.innerHeight + " / " + bottom;
 
                 link.offset({
                     bottom: bottom + diff
