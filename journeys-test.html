@@ -123,16 +123,41 @@
 
     <script type="text/javascript">
 
+        var minH, maxH, tempH, tempH1;
+        minh = window.innerHeight;
         window.addEventListener("resize", function consolemepls() {
             console.log("whirling");
             console.log(window.innerHeight);
+            tempH = window.innerHeight;
+            if (tempH > maxH) {
+                maxH = tempH;
+            }
+            if (tempH < minH) {
+                minH = tempH;
+            }
+
+            if (tempH1 > tempH) {
+                // add the diff to banner elevation
+                var diff = tempH1 - tempH;
+
+
+                var link = $("#branch-banner-iframe");
+                var offset = link.offset();
+                var bottom = top + link.outerHeight();
+
+                link.offset({
+                    bottom: bottom + diff
+                });
+
+                // document.getElementById('branch-banner-iframe').onload = function () {
+                //     var myIframe = document.getElementById('branch-banner-iframe').contentWindow.document;
+                //     var k =
+                //         myIframe.style.top = '';
+            }
+
+            tempH1 = tempH;
             document.getElementById("valvak").innerHTML = '' + window.innerHeight;
 
-            document.getElementById('branch-banner-iframe').onload = function () {
-                var myIframe = document.getElementById('branch-banner-iframe').contentWindow.document;
-                //myIframe.style.left = '100px';
-                //myIframe.style.top = '100px';
-            }
         });
 
 
