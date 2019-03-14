@@ -149,8 +149,9 @@
 
 
             // if the banner pos same, but window dec, move up
-            if (bt1 == bt2){
+            if (bt1 == bt2) {
                 if (tempH1 > tempH) {
+                    document.getElementById("valvak").innerHTML = window.innerHeight + ' - ' + bt2 + ' - ' + (tempH1 - tempH);
                     window.frames['branch-banner-iframe'].scrollTo(iframeY.offsetLeft, bt2 + (tempH1 - tempH));
                 }
             }
@@ -185,7 +186,7 @@
             //     //     var myIframe = document.getElementById('branch-banner-iframe').contentWindow.document;
             //     //     var k =
             //     //         myIframe.style.top = '';
-                
+
             // }
             //document.getElementById("valvak").innerHTML = '' + window.innerHeight;
 
