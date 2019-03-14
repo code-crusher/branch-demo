@@ -144,25 +144,27 @@
                 // myIframe.offsetTop;
                 // myIframe.style.top = '';
 
-                var iframeY = window.parent.document.getElementById('branch-banner-iframe').offsetTop;
+                var iframeY = window.parent.document.getElementById('branch-banner-iframe');
+                var bottom = iframeY.offsetTop;
 
 
                 // var link = $("#branch-banner-iframe");
                 // var offset = link.offset();
                 // var bottom = top + link.outerHeight();
-                document.getElementById("valvak").innerHTML = window.innerHeight + ' - ' + iframeY + ' - ' + diff;
+                document.getElementById("valvak").innerHTML = window.innerHeight + ' - ' + bottom + ' - ' + diff;
 
-                link.offset({
-                    bottom: bottom + diff
-                });
+                iframeY.style.top = bottom + diff;
+                // link.offset({
+                //     bottom: bottom + diff
+                // });
 
                 // document.getElementById('branch-banner-iframe').onload = function () {
                 //     var myIframe = document.getElementById('branch-banner-iframe').contentWindow.document;
                 //     var k =
                 //         myIframe.style.top = '';
+                tempH1 = tempH;
             }
 
-            tempH1 = tempH;
             //document.getElementById("valvak").innerHTML = '' + window.innerHeight;
 
         });
