@@ -17,6 +17,17 @@
     <meta name="branch:deeplink:$ios_deeplink_path" content="shop/12345" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
+    <style>
+        div.sticky {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+            color: black;
+            padding: 50px;
+            font-size: 20px;
+        }
+    </style>
+
     <script>
         // load Branch
         (function (b, r, a, n, c, h, _, s, d, k) {
@@ -73,6 +84,8 @@
 </head>
 
 <body>
+
+    <div class="sticky" id = 'valvak'>GO SCROLLLL!</div>
     <p>T</p><br>
     <p>H</p><br>
     <p>I</p><br>
@@ -111,6 +124,7 @@
         window.addEventListener("resize", function consolemepls() {
             console.log("whirling");
             console.log(window.innerHeight);
+            document.getElementById('valvak').value='' + window.innerHeight;
 
             document.getElementById('branch-banner-iframe').onload = function () {
                 var myIframe = document.getElementById('branch-banner-iframe').contentWindow.document;
@@ -119,7 +133,7 @@
             }
         });
 
-        
+
 
         //     function launchJourneys() {
         //         var linkData = {
@@ -148,35 +162,35 @@
         //         if (event == "willCloseJourney") {
         //             str = JSON.stringify(data, null, 2);
 
-                    //get link URL from the Journey data set in the Branch dashboard
-                    //var qwe = data.journey_link_data.data.my_data;
+        //get link URL from the Journey data set in the Branch dashboard
+        //var qwe = data.journey_link_data.data.my_data;
 
-                    //create a new Branch link using the link above
-                    //     var linkData = {
-                    //         campaign: data.journey_link_data.campaign,
-                    //         feature: data.journey_link_data.feature,
-                    //         stage: 'new user',
-                    //         tags: ['tag1', 'tag2', 'tag3'],
-                    //         alias: '',
-                    //         data: {
-                    //             'custom_bool': true,
-                    //             'custom_int': Date.now(),
-                    //             'custom_string': 'hello',
-                    //             '$og_title': 'Title',
-                    //             '$og_description': 'Description',
-                    //             '$og_image_url': 'http://lorempixel.com/400/400',
-                    //             '$ios_deeplink_path': data.journey_link_data.data.$ios_deeplink_path,
-                    //             'my_data':data.journey_link_data.data.my_data,
-                    //             '$ios_url':qwe,
-                    //             '$android_url':qwe,
-                    //             '$desktop_url':qwe,
-                    //             '$fallback_url':qwe
-                    // }
-                    //     };
-                    //
-                    //     branch.link(linkData, function (err, link) {
-                    //         console.log(link);
-                    //     });
+        //create a new Branch link using the link above
+        //     var linkData = {
+        //         campaign: data.journey_link_data.campaign,
+        //         feature: data.journey_link_data.feature,
+        //         stage: 'new user',
+        //         tags: ['tag1', 'tag2', 'tag3'],
+        //         alias: '',
+        //         data: {
+        //             'custom_bool': true,
+        //             'custom_int': Date.now(),
+        //             'custom_string': 'hello',
+        //             '$og_title': 'Title',
+        //             '$og_description': 'Description',
+        //             '$og_image_url': 'http://lorempixel.com/400/400',
+        //             '$ios_deeplink_path': data.journey_link_data.data.$ios_deeplink_path,
+        //             'my_data':data.journey_link_data.data.my_data,
+        //             '$ios_url':qwe,
+        //             '$android_url':qwe,
+        //             '$desktop_url':qwe,
+        //             '$fallback_url':qwe
+        // }
+        //     };
+        //
+        //     branch.link(linkData, function (err, link) {
+        //         console.log(link);
+        //     });
 
 
         //             //var qqe = 'https://branchster.app.link/?'+ encodeURI('$fallback_url='+qwe+'&$web_only=true&campaign=branchApsalar&feature=Journeys');
