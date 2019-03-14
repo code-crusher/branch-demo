@@ -127,9 +127,13 @@
         var k = 1;
         var bt1, bt2;
         minh = window.innerHeight;
-        var iframeY = window.parent.document.getElementById('branch-banner-iframe');
-        bt1 = iframeY.offsetTop;
 
+        // document.getElementById('branch-banner-iframe').onload = function () {
+        //     var iframeY = window.parent.document.getElementById('branch-banner-iframe');
+        //     bt1 = iframeY.offsetTop;
+        // }
+
+        bt1 = 0;
         window.addEventListener("resize", function consolemepls() {
 
             var iframeY = window.parent.document.getElementById('branch-banner-iframe');
@@ -147,10 +151,14 @@
                 minH = tempH;
             }
 
+            console.log(bt1);
+            console.log(bt2);
+            console.log(tempH1 - tempH);
 
             // if the banner pos same, but window dec, move up
             if (bt1 == bt2) {
                 if (tempH1 > tempH) {
+                    console.log(tempH1 - tempH);
                     document.getElementById("valvak").innerHTML = window.innerHeight + ' - ' + bt2 + ' - ' + (tempH1 - tempH);
                     window.frames['branch-banner-iframe'].scrollTo(iframeY.offsetLeft, bt2 + (tempH1 - tempH));
                 }
