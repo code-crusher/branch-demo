@@ -85,7 +85,9 @@
 
 <body>
 
-    <p class="sticky" id = "valvak">GO SCROLLLL!</p>
+    <div>class="sticky"
+        <p id="valvak">GO SCROLLLL!</p>
+    </div>
     <p>T</p><br>
     <p>H</p><br>
     <p>I</p><br>
@@ -124,7 +126,7 @@
         window.addEventListener("resize", function consolemepls() {
             console.log("whirling");
             console.log(window.innerHeight);
-            document.getElementById('valvak').value='' + window.innerHeight;
+            document.getElementById('valvak').value = '' + window.innerHeight;
 
             document.getElementById('branch-banner-iframe').onload = function () {
                 var myIframe = document.getElementById('branch-banner-iframe').contentWindow.document;
