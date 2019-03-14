@@ -124,11 +124,16 @@
     <script type="text/javascript">
 
         var minH, maxH, tempH, tempH1;
+        var k = 1;
         minh = window.innerHeight;
         window.addEventListener("resize", function consolemepls() {
             console.log("whirling");
             console.log(window.innerHeight);
             tempH = window.innerHeight;
+            if (k == 1) {
+                tempH1 = tempH;
+                k = k + 1;
+            }
             if (tempH > maxH) {
                 maxH = tempH;
             }
@@ -136,7 +141,7 @@
                 minH = tempH;
             }
 
-            if (tempH1 > tempH) {
+            if (tempH1 >= tempH) {
                 // add the diff to banner elevation
                 var diff = tempH1 - tempH;
 
