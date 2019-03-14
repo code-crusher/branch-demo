@@ -140,11 +140,17 @@
                 // add the diff to banner elevation
                 var diff = tempH1 - tempH;
 
+                // var myIframe = document.getElementById('branch-banner-iframe').contentWindow.document;
+                // myIframe.offsetTop;
+                // myIframe.style.top = '';
 
-                var link = $("#branch-banner-iframe");
-                var offset = link.offset();
-                var bottom = top + link.outerHeight();
-                document.getElementById("valvak").innerHTML = '' + window.innerHeight + " / " + bottom;
+                var iframeY = window.parent.document.getElementById('branch-banner-iframe').offsetTop;
+
+
+                // var link = $("#branch-banner-iframe");
+                // var offset = link.offset();
+                // var bottom = top + link.outerHeight();
+                document.getElementById("valvak").innerHTML = window.innerHeight + ' - ' + iframeY + ' - ' + diff;
 
                 link.offset({
                     bottom: bottom + diff
