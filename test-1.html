@@ -104,38 +104,39 @@
         var listener = function (event, data) { resetBannerPosition(); }
         branch.addListener('didShowJourney', listener);
         branch.addListener(listener);
-        // reset banner on scroll
-        // var resizeId;
-        // window.addEventListener("resize", function () {
-        //     resetBannerPosition();
-        // });
+        //reset banner on scroll
+        var resizeId;
+        window.addEventListener("resize", function () {
+            resetBannerPosition();
+        });
 
         function resetBannerPosition() {
             // always keep window-banner.top = banner.height
             if ((window.innerHeight - window.parent.document.getElementById('branch-banner-iframe').offsetTop) != window.parent.document.getElementById('branch-banner-iframe').offsetHeight) {
                 window.parent.document.getElementById('branch-banner-iframe').style.top = "" + (window.innerHeight - window.parent.document.getElementById('branch-banner-iframe').offsetHeight) + "px";
+                document.getElementById("valvak").innerHTML = window.innerHeight + ' - ' + window.parent.document.getElementById('branch-banner-iframe').style.top + ' - ' + (window.innerHeight - window.parent.document.getElementById('branch-banner-iframe').offsetHeight);
             }
         }
 
-        window.addEventListener("resize", resizeThrottler, false);
+        //window.addEventListener("resize", resizeThrottler, false);
 
 
-        var resizeTimeout;
-        function resizeThrottler() {
-            // ignore resize events as long as an actualResizeHandler execution is in the queue
-            if (!resizeTimeout) {
-                resizeTimeout = setTimeout(function () {
-                    resizeTimeout = null;
-                    actualResizeHandler();
+        // var resizeTimeout;
+        // function resizeThrottler() {
+        //     // ignore resize events as long as an actualResizeHandler execution is in the queue
+        //     if (!resizeTimeout) {
+        //         resizeTimeout = setTimeout(function () {
+        //             resizeTimeout = null;
+        //             actualResizeHandler();
 
-                    // The actualResizeHandler will execute at a rate of 15fps
-                }, 16);
-            }
-        }
+        //             // The actualResizeHandler will execute at a rate of 15fps
+        //         }, 16);
+        //     }
+        // }
 
-        function actualResizeHandler() {
-            resetBannerPosition();
-         }
+        // function actualResizeHandler() {
+        //     resetBannerPosition();
+        //  }
 
     </script>
 
