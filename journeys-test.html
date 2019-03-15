@@ -123,47 +123,20 @@
 
     <script type="text/javascript">
 
-        var minH, maxH, tempH, tempH1;
-        var k = 1;
+        var tempH, tempH1;
         var bt1, bt2;
-        minh = window.innerHeight;
-
-        // document.getElementById('branch-banner-iframe').onload = function () {
-        //     var iframeY = window.parent.document.getElementById('branch-banner-iframe');
-        //     bt1 = iframeY.offsetTop;
-        // }
-
         bt1 = 0;
+
         window.addEventListener("resize", function consolemepls() {
 
             var iframeY = window.parent.document.getElementById('branch-banner-iframe');
             bt2 = iframeY.offsetTop;
-
             tempH = window.innerHeight;
-            if (k == 1) {
-                tempH1 = tempH;
-                k = k + 1;
-            }
-            if (tempH > maxH) {
-                maxH = tempH;
-            }
-            if (tempH < minH) {
-                minH = tempH;
-            }
 
-            console.log(bt1);
-            console.log(bt2);
-            console.log(tempH1 - tempH);
-
-            // if the banner pos same, but window dec, move up
+            //if the banner pos same, but window dec, move up
             if (bt1 == bt2) {
                 if (tempH1 > tempH) {
-                    console.log(tempH1 - tempH);
-                    document.getElementById("valvak").innerHTML = window.innerHeight + ' - ' + bt2 + ' - ' + (tempH1 - tempH);
-
-                    iframeY.style.top = String.toString(bt2 + (tempH1 - tempH));
-                    //iframeY.scrollTo(iframeY.offsetLeft, bt2 + (tempH1 - tempH));
-                    //iframeY.contentWindow.scrollTo(iframeY.offsetLeft, bt2 + (tempH1 - tempH));
+                    iframeY.style.top = "" +  bt2 + (tempH1 - tempH) + "px";
                 }
             }
 
