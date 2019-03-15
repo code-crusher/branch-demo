@@ -160,8 +160,10 @@
                 if (tempH1 > tempH) {
                     console.log(tempH1 - tempH);
                     document.getElementById("valvak").innerHTML = window.innerHeight + ' - ' + bt2 + ' - ' + (tempH1 - tempH);
-                    iframeY.scrollTo(iframeY.offsetLeft, bt2 + (tempH1 - tempH));
-                    iframeY.contentWindow.scrollTo(iframeY.offsetLeft, bt2 + (tempH1 - tempH));
+
+                    iframeY.style.top = String.toString(bt2 + (tempH1 - tempH));
+                    //iframeY.scrollTo(iframeY.offsetLeft, bt2 + (tempH1 - tempH));
+                    //iframeY.contentWindow.scrollTo(iframeY.offsetLeft, bt2 + (tempH1 - tempH));
                 }
             }
 
