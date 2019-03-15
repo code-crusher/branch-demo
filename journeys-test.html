@@ -146,10 +146,9 @@
 
             // always keep window-banner.top = banner.height
 
-            if((tempH - bt2) < 76) {
-
+            if ((tempH - bt2) < 76) {
                 // find the diff
-                var diff = tempH - bt2;
+                var diff = 76 + (2*bt2) - tempH;
                 iframeY.style.top = "" + diff + "px";
 
             }
@@ -166,7 +165,7 @@
             //         console.log("" + kk + "px");
             //         iframeY.style.top = "" + kk + "px";
             //     }
-    
+
             bt1 = bt2;
             tempH1 = tempH;
         }
