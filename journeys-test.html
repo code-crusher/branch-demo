@@ -136,45 +136,21 @@
             //if the banner pos same, but window dec, move up
             if (bt1 == bt2) {
                 if (tempH1 > tempH) {
-                    document.getElementById("valvak").innerHTML = window.innerHeight + ' - ' + bt2 + ' - ' + tempH1 - tempH;
-                    iframeY.style.top = "" +  bt2 + (tempH1 - tempH) + "px";
+                    document.getElementById("valvak").innerHTML = window.innerHeight + ' - ' + bt2 + ' - ' + (tempH1 - tempH);
+                    const kk = bt2 - (tempH1 - tempH);
+                    console.log("" +  kk + "px");
+                    iframeY.style.top = "" +  kk + "px";
+                } 
+                if (tempH1 < tempH) {
+                    document.getElementById("valvak").innerHTML = window.innerHeight + ' - ' + bt2 + ' - ' + (tempH1 - tempH);
+                    const kk = bt2 - (tempH1 - tempH);
+                    console.log("" +  kk + "px");
+                    iframeY.style.top = "" +  kk + "px";
                 }
             }
 
             bt1 = bt2;
             tempH1 = tempH;
-
-
-            // if (tempH1 >= tempH) {
-            //     // add the diff to banner elevation
-            //     var diff = tempH1 - tempH;
-
-            //     var iframeY = window.parent.document.getElementById('branch-banner-iframe');
-            //     var bottom = iframeY.offsetTop;
-
-            //     var bump = 
-
-            //     // var link = $("#branch-banner-iframe");
-            //     // var offset = link.offset();
-            //     // var bottom = top + link.outerHeight();
-            //     document.getElementById("valvak").innerHTML = window.innerHeight + ' - ' + bottom + ' - ' + diff;
-
-            //     iframeY.style.top = bottom + diff;
-            //     window.frames['branch-banner-iframe'].scrollTo(iframeY.offsetLeft, bottom + )
-
-
-            //     // link.offset({
-            //     //     bottom: bottom + diff
-            //     // });
-
-            //     // document.getElementById('branch-banner-iframe').onload = function () {
-            //     //     var myIframe = document.getElementById('branch-banner-iframe').contentWindow.document;
-            //     //     var k =
-            //     //         myIframe.style.top = '';
-
-            // }
-            //document.getElementById("valvak").innerHTML = '' + window.innerHeight;
-
         });
 
 
