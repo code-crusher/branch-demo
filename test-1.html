@@ -101,22 +101,43 @@
 
     <script type="text/javascript">
         // reset banner on load
-        var listener = function (event, data) { resetBannerPosition(); }
+        var listener = function (event, data) { resetBannerPosition(true); }
         branch.addListener('didShowJourney', listener);
         branch.addListener(listener);
         //reset banner on scroll
-        var resizeId;
         window.addEventListener("resize", function () {
-            resetBannerPosition();
+            resetBannerPosition(true);
         });
 
-        function resetBannerPosition() {
-            // always keep window-banner.top = banner.height
-            if ((window.innerHeight - window.parent.document.getElementById('branch-banner-iframe').offsetTop) != window.parent.document.getElementById('branch-banner-iframe').offsetHeight) {
-                window.parent.document.getElementById('branch-banner-iframe').style.top = "" + (window.innerHeight - window.parent.document.getElementById('branch-banner-iframe').offsetHeight) + "px";
-                document.getElementById("valvak").innerHTML = window.innerHeight + ' - ' + window.parent.document.getElementById('branch-banner-iframe').style.top + ' - ' + (window.innerHeight - window.parent.document.getElementById('branch-banner-iframe').offsetHeight);
+        function resetBannerPosition(shouldOnlyChangeTop) {
+            if (shouldOnlyChangeTop) {
+                // always keep window-banner.top = banner.height
+                if ((window.innerHeight - window.parent.document.getElementById('branch-banner-iframe').offsetTop) != window.parent.document.getElementById('branch-banner-iframe').offsetHeight) {
+                    window.parent.document.getElementById('branch-banner-iframe').style.top = "" + (window.innerHeight - window.parent.document.getElementById('branch-banner-iframe').offsetHeight) + "px";
+                }
+            } else {
+                //window.parent.document.getElementById('branch-banner-iframe').style.position = 'fixed';
+                // get min offset diff
+                var nH = (window.innerHeight - window.parent.document.getElementById('branch-banner-iframe').offsetHeight);
+                window.parent.document.getElementById('branch-banner-iframe').style.top = (nH + 33) + "px";
             }
         }
+
+        window.addEventListener("scroll", function () {
+            document.getElementById("valvak").innerHTML = window.innerHeight + ' - '
+                + window.parent.document.getElementById('branch-banner-iframe').style.top + ' - '
+                + (window.innerHeight - window.parent.document.getElementById('branch-banner-iframe').offsetHeight) + ' - '
+                + window.pageYOffset + ' - '
+                + document.body.scrollHeight;
+            if (window.pageYOffset > window.innerHeight) {
+                resetBannerPosition(false);
+            } else {
+                resetBannerPosition(true);
+            }
+
+        });
+
+            //elem.scrollIntoView(top);
 
         //window.addEventListener("resize", resizeThrottler, false);
 
