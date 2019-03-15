@@ -139,20 +139,33 @@
             var iframeY = window.parent.document.getElementById('branch-banner-iframe');
             bt2 = iframeY.offsetTop;
             tempH = window.innerHeight;
+            console.log(bt2);
+            console.log(tempH);
+            console.log(iframeY.offsetHeight);
 
-            //if the banner pos same, but window dec, move up
-                if (tempH1 > tempH) {
-                    document.getElementById("valvak").innerHTML = window.innerHeight + ' - ' + bt2 + ' - ' + (tempH1 - tempH);
-                    const kk = bt2 - (tempH1 - tempH);
-                    console.log("" + kk + "px");
-                    iframeY.style.top = "" + kk + "px";
-                }
-                if (tempH1 < tempH) {
-                    document.getElementById("valvak").innerHTML = window.innerHeight + ' - ' + bt2 + ' - ' + (tempH1 - tempH);
-                    const kk = bt2 - (tempH1 - tempH);
-                    console.log("" + kk + "px");
-                    iframeY.style.top = "" + kk + "px";
-                }
+
+            // always keep window-banner.top = banner.height
+
+            if((tempH - bt2) < 76) {
+
+                // find the diff
+                var diff = tempH - bt2;
+                iframeY.style.top = "" + diff + "px";
+
+            }
+            // //if the banner pos same, but window dec, move up
+            //     if (tempH1 > tempH) {
+            //         document.getElementById("valvak").innerHTML = window.innerHeight + ' - ' + bt2 + ' - ' + (tempH1 - tempH);
+            //         const kk = bt2 - (tempH1 - tempH);
+            //         console.log("" + kk + "px");
+            //         iframeY.style.top = "" + kk + "px";
+            //     }
+            //     if (tempH1 < tempH) {
+            //         document.getElementById("valvak").innerHTML = window.innerHeight + ' - ' + bt2 + ' - ' + (tempH1 - tempH);
+            //         const kk = bt2 - (tempH1 - tempH);
+            //         console.log("" + kk + "px");
+            //         iframeY.style.top = "" + kk + "px";
+            //     }
     
             bt1 = bt2;
             tempH1 = tempH;
