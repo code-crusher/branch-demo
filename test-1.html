@@ -96,8 +96,12 @@
         cursus vitae. Nam porttitor dolor ac ex euismod malesuada.</p>
 
     <script type="text/javascript">
-        setTimeout(resetBannerPosition, 500);
-        resetBannerPosition();
+        // reset banner on load
+        var listener = function (event, data) { resetBannerPosition(); }
+        branch.addListener('didShowJourney', listener);
+        branch.addListener(listener);
+
+        // reset banner on scroll
         var resizeId;
         window.addEventListener("resize", function () {
             clearTimeout(resizeId);
