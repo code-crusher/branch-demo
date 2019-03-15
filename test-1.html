@@ -50,7 +50,11 @@
             }, "addListener applyCode autoAppIndex banner closeBanner closeJourney creditHistory credits data deepview deepviewCta first getCode init link logout redeem referrals removeListener sendSMS setBranchViewData setIdentity track validateCode trackCommerceEvent".split(" "), 0);
 
         // BFM live
-        branch.init('key_live_hkDytPACtipny3N9XmnbZlapBDdj4WIL', { auto_open: false });
+        branch.init('key_live_hkDytPACtipny3N9XmnbZlapBDdj4WIL', {
+            auto_open: false, 
+            'disable_entry_animation': true,
+            'disable_exit_animation': true
+        });
     </script>
 </head>
 
@@ -100,20 +104,17 @@
         var listener = function (event, data) { resetBannerPosition(); }
         branch.addListener('didShowJourney', listener);
         branch.addListener(listener);
-
         // reset banner on scroll
         var resizeId;
         window.addEventListener("resize", function () {
             resetBannerPosition();
-            //clearTimeout(resizeId);
-            //resizeId = setTimeout(resetBannerPosition, 100);
         });
 
         function resetBannerPosition() {
             // always keep window-banner.top = banner.height
             if ((window.innerHeight - window.parent.document.getElementById('branch-banner-iframe').offsetTop) != window.parent.document.getElementById('branch-banner-iframe').offsetHeight) {
-                var f = (window.innerHeight - window.parent.document.getElementById('branch-banner-iframe').offsetHeight);
-                window.parent.document.getElementById('branch-banner-iframe').style.top = "" + f + "px";
+                window.parent.document.getElementById('branch-banner-iframe').style.top = "" + (window.innerHeight - window.parent.document.getElementById('branch-banner-iframe').offsetHeight) + "px";
+                window.parent.document.getElementById('branch-banner-iframe').style.scr
             }
         }
 
