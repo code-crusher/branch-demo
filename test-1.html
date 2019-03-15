@@ -104,8 +104,9 @@
         // reset banner on scroll
         var resizeId;
         window.addEventListener("resize", function () {
-            clearTimeout(resizeId);
-            resizeId = setTimeout(resetBannerPosition, 100);
+            resetBannerPosition();
+            //clearTimeout(resizeId);
+            //resizeId = setTimeout(resetBannerPosition, 100);
         });
 
         function resetBannerPosition() {
