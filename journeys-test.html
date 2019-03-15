@@ -127,8 +127,15 @@
         var bt1, bt2;
         bt1 = 0;
 
-        window.addEventListener("resize", function consolemepls() {
+        var resizeId;
+        window.addEventListener("resize", function () {
+            clearTimeout(resizeId);
+            resizeId = setTimeout(doneResizing, 500);
+        });
 
+        function doneResizing() {
+            //alert("k")
+            console.log("k");
             var iframeY = window.parent.document.getElementById('branch-banner-iframe');
             bt2 = iframeY.offsetTop;
             tempH = window.innerHeight;
@@ -138,20 +145,45 @@
                 if (tempH1 > tempH) {
                     document.getElementById("valvak").innerHTML = window.innerHeight + ' - ' + bt2 + ' - ' + (tempH1 - tempH);
                     const kk = bt2 - (tempH1 - tempH);
-                    console.log("" +  kk + "px");
-                    iframeY.style.top = "" +  kk + "px";
-                } 
+                    console.log("" + kk + "px");
+                    iframeY.style.top = "" + kk + "px";
+                }
                 if (tempH1 < tempH) {
                     document.getElementById("valvak").innerHTML = window.innerHeight + ' - ' + bt2 + ' - ' + (tempH1 - tempH);
                     const kk = bt2 - (tempH1 - tempH);
-                    console.log("" +  kk + "px");
-                    iframeY.style.top = "" +  kk + "px";
+                    console.log("" + kk + "px");
+                    iframeY.style.top = "" + kk + "px";
                 }
             }
 
             bt1 = bt2;
             tempH1 = tempH;
-        });
+        }
+        // window.addEventListener("resize", function consolemepls() {
+
+        //     var iframeY = window.parent.document.getElementById('branch-banner-iframe');
+        //     bt2 = iframeY.offsetTop;
+        //     tempH = window.innerHeight;
+
+        //     //if the banner pos same, but window dec, move up
+        //     if (bt1 == bt2) {
+        //         if (tempH1 > tempH) {
+        //             document.getElementById("valvak").innerHTML = window.innerHeight + ' - ' + bt2 + ' - ' + (tempH1 - tempH);
+        //             const kk = bt2 - (tempH1 - tempH);
+        //             console.log("" + kk + "px");
+        //             iframeY.style.top = "" + kk + "px";
+        //         }
+        //         if (tempH1 < tempH) {
+        //             document.getElementById("valvak").innerHTML = window.innerHeight + ' - ' + bt2 + ' - ' + (tempH1 - tempH);
+        //             const kk = bt2 - (tempH1 - tempH);
+        //             console.log("" + kk + "px");
+        //             iframeY.style.top = "" + kk + "px";
+        //         }
+        //     }
+
+        //     bt1 = bt2;
+        //     tempH1 = tempH;
+        // });
 
 
 
