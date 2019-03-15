@@ -122,53 +122,21 @@
     <p>?</p><br>
 
     <script type="text/javascript">
+        // resetBannerPosition();
+        // var resizeId;
+        // window.addEventListener("resize", function () {
+        //     clearTimeout(resizeId);
+        //     resizeId = setTimeout(resetBannerPosition, 100);
+        // });
 
-        var tempH, tempH1;
-        var bt1, bt2;
-        bt1 = 0;
+        // function resetBannerPosition() {
+        //     // always keep window-banner.top = banner.height
+        //     if ((window.innerHeight - window.parent.document.getElementById('branch-banner-iframe').offsetTop) != window.parent.document.getElementById('branch-banner-iframe').offsetHeight) {
+        //         var f = (window.innerHeight - window.parent.document.getElementById('branch-banner-iframe').offsetHeight);
+        //         window.parent.document.getElementById('branch-banner-iframe').style.top = "" + f + "px";
+        //     }
+        // }
 
-        var resizeId;
-        window.addEventListener("resize", function () {
-            clearTimeout(resizeId);
-            resizeId = setTimeout(doneResizing, 100);
-        });
-
-        function doneResizing() {
-            //alert("k")
-            console.log("k");
-            var iframeY = window.parent.document.getElementById('branch-banner-iframe');
-            bt2 = iframeY.offsetTop;
-            tempH = window.innerHeight;
-            console.log(bt2);
-            console.log(tempH);
-            console.log(iframeY.offsetHeight);
-
-
-            // always keep window-banner.top = banner.height
-
-           // x = 76 + bt2 - tempH
-
-            if ((tempH - bt2) != iframeY.offsetHeight) {
-                var f =  (tempH - iframeY.offsetHeight);
-                iframeY.style.top = "" + f + "px";
-            } 
-            // //if the banner pos same, but window dec, move up
-            //     if (tempH1 > tempH) {
-            //         document.getElementById("valvak").innerHTML = window.innerHeight + ' - ' + bt2 + ' - ' + (tempH1 - tempH);
-            //         const kk = bt2 - (tempH1 - tempH);
-            //         console.log("" + kk + "px");
-            //         iframeY.style.top = "" + kk + "px";
-            //     }
-            //     if (tempH1 < tempH) {
-            //         document.getElementById("valvak").innerHTML = window.innerHeight + ' - ' + bt2 + ' - ' + (tempH1 - tempH);
-            //         const kk = bt2 - (tempH1 - tempH);
-            //         console.log("" + kk + "px");
-            //         iframeY.style.top = "" + kk + "px";
-            //     }
-
-            bt1 = bt2;
-            tempH1 = tempH;
-        }
         // window.addEventListener("resize", function consolemepls() {
 
         //     var iframeY = window.parent.document.getElementById('branch-banner-iframe');
