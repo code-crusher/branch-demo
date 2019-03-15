@@ -148,11 +148,10 @@
 
            // x = 76 + bt2 - tempH
 
-            if ((tempH - bt2) < 76) {
-                var f =  (tempH - 76);
+            if ((tempH - bt2) != iframeY.offsetHeight) {
+                var f =  (tempH - iframeY.offsetHeight);
                 iframeY.style.top = "" + f + "px";
-
-            }
+            } 
             // //if the banner pos same, but window dec, move up
             //     if (tempH1 > tempH) {
             //         document.getElementById("valvak").innerHTML = window.innerHeight + ' - ' + bt2 + ' - ' + (tempH1 - tempH);
