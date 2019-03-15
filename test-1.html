@@ -51,7 +51,7 @@
 
         // BFM live
         branch.init('key_live_hkDytPACtipny3N9XmnbZlapBDdj4WIL', {
-            auto_open: false, 
+            auto_open: false,
             'disable_entry_animation': true,
             'disable_exit_animation': true
         });
@@ -105,18 +105,37 @@
         branch.addListener('didShowJourney', listener);
         branch.addListener(listener);
         // reset banner on scroll
-        var resizeId;
-        window.addEventListener("resize", function () {
-            resetBannerPosition();
-        });
+        // var resizeId;
+        // window.addEventListener("resize", function () {
+        //     resetBannerPosition();
+        // });
 
-        function resetBannerPosition() {
-            // always keep window-banner.top = banner.height
-            if ((window.innerHeight - window.parent.document.getElementById('branch-banner-iframe').offsetTop) != window.parent.document.getElementById('branch-banner-iframe').offsetHeight) {
-                window.parent.document.getElementById('branch-banner-iframe').style.top = "" + (window.innerHeight - window.parent.document.getElementById('branch-banner-iframe').offsetHeight) + "px";
-                window.parent.document.getElementById('branch-banner-iframe').style.scr
+        // function resetBannerPosition() {
+        //     // always keep window-banner.top = banner.height
+        //     if ((window.innerHeight - window.parent.document.getElementById('branch-banner-iframe').offsetTop) != window.parent.document.getElementById('branch-banner-iframe').offsetHeight) {
+        //         window.parent.document.getElementById('branch-banner-iframe').style.top = "" + (window.innerHeight - window.parent.document.getElementById('branch-banner-iframe').offsetHeight) + "px";
+        //     }
+        // }
+
+        window.addEventListener("resize", resizeThrottler, false);
+
+
+        var resizeTimeout;
+        function resizeThrottler() {
+            // ignore resize events as long as an actualResizeHandler execution is in the queue
+            if (!resizeTimeout) {
+                resizeTimeout = setTimeout(function () {
+                    resizeTimeout = null;
+                    actualResizeHandler();
+
+                    // The actualResizeHandler will execute at a rate of 15fps
+                }, 66);
             }
         }
+
+        function actualResizeHandler() {
+            resetBannerPosition();
+         }
 
     </script>
 
