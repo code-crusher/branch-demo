@@ -110,12 +110,12 @@
         //     resetBannerPosition();
         // });
 
-        // function resetBannerPosition() {
-        //     // always keep window-banner.top = banner.height
-        //     if ((window.innerHeight - window.parent.document.getElementById('branch-banner-iframe').offsetTop) != window.parent.document.getElementById('branch-banner-iframe').offsetHeight) {
-        //         window.parent.document.getElementById('branch-banner-iframe').style.top = "" + (window.innerHeight - window.parent.document.getElementById('branch-banner-iframe').offsetHeight) + "px";
-        //     }
-        // }
+        function resetBannerPosition() {
+            // always keep window-banner.top = banner.height
+            if ((window.innerHeight - window.parent.document.getElementById('branch-banner-iframe').offsetTop) != window.parent.document.getElementById('branch-banner-iframe').offsetHeight) {
+                window.parent.document.getElementById('branch-banner-iframe').style.top = "" + (window.innerHeight - window.parent.document.getElementById('branch-banner-iframe').offsetHeight) + "px";
+            }
+        }
 
         window.addEventListener("resize", resizeThrottler, false);
 
