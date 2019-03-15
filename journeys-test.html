@@ -130,7 +130,7 @@
         var resizeId;
         window.addEventListener("resize", function () {
             clearTimeout(resizeId);
-            resizeId = setTimeout(doneResizing, 500);
+            resizeId = setTimeout(doneResizing, 100);
         });
 
         function doneResizing() {
@@ -141,7 +141,6 @@
             tempH = window.innerHeight;
 
             //if the banner pos same, but window dec, move up
-            if (bt1 == bt2) {
                 if (tempH1 > tempH) {
                     document.getElementById("valvak").innerHTML = window.innerHeight + ' - ' + bt2 + ' - ' + (tempH1 - tempH);
                     const kk = bt2 - (tempH1 - tempH);
@@ -154,8 +153,7 @@
                     console.log("" + kk + "px");
                     iframeY.style.top = "" + kk + "px";
                 }
-            }
-
+    
             bt1 = bt2;
             tempH1 = tempH;
         }
