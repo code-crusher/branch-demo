@@ -146,10 +146,11 @@
 
             // always keep window-banner.top = banner.height
 
+           // x = 76 + bt2 - tempH
+
             if ((tempH - bt2) < 76) {
-                // find the diff
-                var diff = 76 + (2*bt2) - tempH;
-                iframeY.style.top = "" + diff + "px";
+                var f =  (tempH - 76);
+                iframeY.style.top = "" + f + "px";
 
             }
             // //if the banner pos same, but window dec, move up
