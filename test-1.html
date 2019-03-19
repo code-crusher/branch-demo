@@ -101,7 +101,11 @@
 
     <script type="text/javascript">
         // reset banner on load
-        var listener = function (event, data) { resetBannerPosition(true); }
+        var listener = function (event, data) { 
+            resetBannerPosition(true); 
+            detectiPhoneX();
+        }
+
         branch.addListener('didShowJourney', listener);
         branch.addListener(listener);
         //reset banner on scroll
@@ -113,13 +117,13 @@
             if (shouldOnlyChangeTop) {
                 // always keep window-banner.top = banner.height
                 if ((window.innerHeight - window.parent.document.getElementById('branch-banner-iframe').offsetTop) != window.parent.document.getElementById('branch-banner-iframe').offsetHeight) {
-                    window.parent.document.getElementById('branch-banner-iframe').style.top = "" + (window.innerHeight - window.parent.document.getElementById('branch-banner-iframe').offsetHeight) + "px";
+                    //window.parent.document.getElementById('branch-banner-iframe').style.top = "" + (window.innerHeight - window.parent.document.getElementById('branch-banner-iframe').offsetHeight) + "px";
                 }
             } else {
                 //window.parent.document.getElementById('branch-banner-iframe').style.position = 'fixed';
                 // get min offset diff
                 var nH = (window.innerHeight - window.parent.document.getElementById('branch-banner-iframe').offsetHeight);
-                window.parent.document.getElementById('branch-banner-iframe').style.top = (nH + 33) + "px";
+                //window.parent.document.getElementById('branch-banner-iframe').style.top = (nH + 33) + "px";
             }
         }
 
@@ -136,6 +140,20 @@
             }
 
         });
+
+        function detectiPhoneX() {
+            var ratio = window.devicePixelRatio || 1;
+            var screen = {
+                width : window.screen.width * ratio,
+                height : window.screen.height * ratio
+            };
+
+            // iPhone X Detection
+            if (screen.width == 1125 && screen.height === 2436) {
+                return true;
+            }
+            return false;
+        }
 
             //elem.scrollIntoView(top);
 
