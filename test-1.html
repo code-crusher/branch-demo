@@ -51,15 +51,15 @@
 
         // BFM live
         branch.init('key_live_neNpMBXk0IHMk8eKP0iqWcalADnYOXyw', {
-            auto_open: false,
-            'disable_entry_animation': true,
-            'disable_exit_animation': true
+            auto_open: false
         });
     </script>
 </head>
 
 <body>
 
+    <a
+        href="http://192.168.17.226:8000/Documents/Branch-Projects/branch-demo/test-1.html?safer=x">http://192.168.17.226:8000/Documents/Branch-Projects/branch-demo/test-1.html?safer=x</a>
     <div class="sticky">
         <p id="valvak">GO SCROLLLL!</p>
     </div>
@@ -101,8 +101,11 @@
 
     <script type="text/javascript">
         // reset banner on load
-        var listener = function (event, data) { 
-            resetBannerPosition(true); 
+        var datak = null;
+        var listener = function (event, data) {
+            window.parent.document.getElementById('branch-banner-iframe').style.transition = "all 0s";
+            //alert(data.journey_link_data.safeAreaRequired);
+            resetBannerPosition(true, true);
             detectiPhoneX();
         }
 
@@ -113,17 +116,30 @@
             resetBannerPosition(true);
         });
 
-        function resetBannerPosition(shouldOnlyChangeTop) {
+        function resetBannerPosition(shouldOnlyChangeTop, firstEvent) {
+            // some weirdness in Safari which is not respecting top location on the first load if the page is already scrolled, so skip
+            if(firstEvent) {
+                // we only want this to skip if the has already scrolled, otherwise the banner will not render on the correct position
+                if(window.pageYOffset !== 0) {
+                    return false;
+                }
+            }
+
             if (shouldOnlyChangeTop) {
                 // always keep window-banner.top = banner.height
-                if ((window.innerHeight - window.parent.document.getElementById('branch-banner-iframe').offsetTop) != window.parent.document.getElementById('branch-banner-iframe').offsetHeight) {
+                if (((window.innerHeight - window.parent.document.getElementById('branch-banner-iframe').offsetTop) != window.parent.document.getElementById('branch-banner-iframe').offsetHeight)) {
                     window.parent.document.getElementById('branch-banner-iframe').style.top = "" + (window.innerHeight - window.parent.document.getElementById('branch-banner-iframe').offsetHeight) + "px";
+                    document.getElementById("valvak").innerHTML = window.innerHeight + ' - '
+                        + window.parent.document.getElementById('branch-banner-iframe').style.top + ' - '
+                        + (window.innerHeight - window.parent.document.getElementById('branch-banner-iframe').offsetHeight) + ' - '
+                        + window.pageYOffset + ' - '
+                        + document.body.scrollHeight;
                 }
             } else {
-                //window.parent.document.getElementById('branch-banner-iframe').style.position = 'fixed';
-                // get min offset diff
-                var nH = (window.innerHeight - window.parent.document.getElementById('branch-banner-iframe').offsetHeight);
-                window.parent.document.getElementById('branch-banner-iframe').style.top = (nH + (window.parent.document.getElementById('branch-banner-iframe').offsetHeight)/2) + "px";
+                // as seen generally, on the bottom most scroll Safari bottom nav puts the page in overscroll mode messing up the top location all together
+                // this overscrolling is usually equivalent to half the banner size. We can update the logic based on the nav bar height as it will be the same in every iPhoneX
+                window.parent.document.getElementById('branch-banner-iframe').style.top = ((window.innerHeight - window.parent.document.getElementById('branch-banner-iframe').offsetHeight) + 
+                (window.parent.document.getElementById('branch-banner-iframe').offsetHeight) / 2) + "px";
             }
         }
 
@@ -138,14 +154,13 @@
             } else {
                 resetBannerPosition(true);
             }
-
         });
 
         function detectiPhoneX() {
             var ratio = window.devicePixelRatio || 1;
             var screen = {
-                width : window.screen.width * ratio,
-                height : window.screen.height * ratio
+                width: window.screen.width * ratio,
+                height: window.screen.height * ratio
             };
 
             // iPhone X Detection
