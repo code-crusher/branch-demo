@@ -35,7 +35,7 @@
                 for (; s < _.length;) c(h, _[s++]);
                 d = r.createElement(a);
                 d.async = 1;
-                d.src = "https://cdn.branch.io/branch-latest.min.js";
+                d.src = "http://cdn.branch.io/branch-latest.min.js";
                 k = r.getElementsByTagName(a)[0];
                 k.parentNode.insertBefore(d, k);
                 b[n] = h
@@ -49,7 +49,8 @@
                 _v: 1
             }, "addListener applyCode autoAppIndex banner closeBanner closeJourney creditHistory credits data deepview deepviewCta first getCode init link logout redeem referrals removeListener sendSMS setBranchViewData setIdentity track validateCode trackCommerceEvent".split(" "), 0);
 
-        // BFM live
+        // BFM live 
+        //beta key_live_neNpMBXk0IHMk8eKP0iqWcalADnYOXyw
         branch.init('key_live_neNpMBXk0IHMk8eKP0iqWcalADnYOXyw', {
             auto_open: false
         });
@@ -58,6 +59,8 @@
 
 <body>
 
+    <a
+        href="http://192.168.17.226:8000/Documents/Branch-Projects/branch-demo/test-1.html?safer=x">http://192.168.17.226:8000/Documents/Branch-Projects/branch-demo/test-1.html?safer=x</a>
     <a
         href="http://192.168.17.226:8000/Documents/Branch-Projects/branch-demo/test-1.html?safer=x">http://192.168.17.226:8000/Documents/Branch-Projects/branch-demo/test-1.html?safer=x</a>
     <div class="sticky">
@@ -99,15 +102,30 @@
         condimentum. Nullam facilisis dolor ac orci eleifend tristique. Proin facilisis sem ante, eu gravida dolor
         cursus vitae. Nam porttitor dolor ac ex euismod malesuada.</p>
 
-    <script type="text/javascript">
+        <!-- <script type = "text/javascript">
+
+        detectiOS();
+        
+        function detectiOS() {
+            
+            if(!!navigator.platform.match(/iPhone|iPod|iPad/)) {
+                alert("iOS");
+            }
+        }
+        
+        </script> -->
+    <!-- <script type="text/javascript">
         // reset banner on load
         var datak = null;
         var listener = function (event, data) {
             window.parent.document.getElementById('branch-banner-iframe').style.transition = "all 0s";
             //alert(data.journey_link_data.safeAreaRequired);
             resetBannerPosition(true, true);
+            window.parent.document.getElementById('branch-banner-iframe').style.transition = "all 0s";
+            //alert(data.journey_link_data.safeAreaRequired);
+            resetBannerPosition(true, true);
             detectiPhoneX();
-        }
+        } 
 
         branch.addListener('didShowJourney', listener);
         branch.addListener(listener);
@@ -115,60 +133,72 @@
         window.addEventListener("resize", function () {
             resetBannerPosition(true);
         });
-
         function resetBannerPosition(shouldOnlyChangeTop, firstEvent) {
             // some weirdness in Safari which is not respecting top location on the first load if the page is already scrolled, so skip
-            if(firstEvent) {
+            if (firstEvent) {
                 // we only want this to skip if the has already scrolled, otherwise the banner will not render on the correct position
-                if(window.pageYOffset !== 0) {
+                if (window.pageYOffset !== 0) {
                     return false;
                 }
             }
 
-            if (shouldOnlyChangeTop) {
-                // always keep window-banner.top = banner.height
-                if (((window.innerHeight - window.parent.document.getElementById('branch-banner-iframe').offsetTop) != window.parent.document.getElementById('branch-banner-iframe').offsetHeight)) {
-                    window.parent.document.getElementById('branch-banner-iframe').style.top = "" + (window.innerHeight - window.parent.document.getElementById('branch-banner-iframe').offsetHeight) + "px";
+            if (((window.innerHeight - window.parent.document.getElementById('branch-banner-iframe').offsetTop) != window.parent.document.getElementById('branch-banner-iframe').offsetHeight)) {
+                window.parent.document.getElementById('branch-banner-iframe').style.top = "" + (window.innerHeight - window.parent.document.getElementById('branch-banner-iframe').offsetHeight) + "px";
+                document.getElementById("valvak").innerHTML = window.innerHeight + ' - '
+                    + window.parent.document.getElementById('branch-banner-iframe').style.top + ' - '
+                    + (window.innerHeight - window.parent.document.getElementById('branch-banner-iframe').offsetHeight) + ' - '
+                    + window.pageYOffset + ' - '
+                    + document.body.scrollHeight;
+                if (firstEvent) {
+                    // we only want this to skip if the has already scrolled, otherwise the banner will not render on the correct position
+                    // as seen generally, on the bottom most scroll Safari bottom nav puts the page in overscroll mode messing up the top location all together
+                    // this overscrolling is usually equivalent to half the banner size. We can update the logic based on the nav bar height as it will be the same in every iPhoneX
+                    window.parent.document.getElementById('branch-banner-iframe').style.top = ((window.innerHeight - window.parent.document.getElementById('branch-banner-iframe').offsetHeight) +
+                        (window.parent.document.getElementById('branch-banner-iframe').offsetHeight) / 2) + "px";
+
+                    if (shouldOnlyChangeTop) {
+                        // always keep window-banner.top = banner.height
+                        if (((window.innerHeight - window.parent.document.getElementById('branch-banner-iframe').offsetTop) != window.parent.document.getElementById('branch-banner-iframe').offsetHeight)) {
+                            window.parent.document.getElementById('branch-banner-iframe').style.top = "" + (window.innerHeight - window.parent.document.getElementById('branch-banner-iframe').offsetHeight) + "px";
+                            document.getElementById("valvak").innerHTML = window.innerHeight + ' - '
+                                + window.parent.document.getElementById('branch-banner-iframe').style.top + ' - '
+                                + (window.innerHeight - window.parent.document.getElementById('branch-banner-iframe').offsetHeight) + ' - '
+                                + window.pageYOffset + ' - '
+                                + document.body.scrollHeight;
+                        }
+                    } else {
+                        // as seen generally, on the bottom most scroll Safari bottom nav puts the page in overscroll mode messing up the top location all together
+                        // this overscrolling is usually equivalent to half the banner size. We can update the logic based on the nav bar height as it will be the same in every iPhoneX
+                        (window.parent.document.getElementById('branch-banner-iframe').offsetHeight) / 2) + "px";
+                    }
+                }
+
+                window.addEventListener("scroll", function () {
                     document.getElementById("valvak").innerHTML = window.innerHeight + ' - '
                         + window.parent.document.getElementById('branch-banner-iframe').style.top + ' - '
                         + (window.innerHeight - window.parent.document.getElementById('branch-banner-iframe').offsetHeight) + ' - '
                         + window.pageYOffset + ' - '
                         + document.body.scrollHeight;
+                    if (window.pageYOffset > window.innerHeight) {
+                        resetBannerPosition(false);
+                    } else {
+                        resetBannerPosition(true);
+                    }
+                });
+
+                function detectiPhoneX() {
+                    var ratio = window.devicePixelRatio || 1;
+                    var screen = {
+                        width: window.screen.width * ratio,
+                        height: window.screen.height * ratio
+                    };
+
+                    // iPhone X Detection
+                    if (screen.width == 1125 && screen.height === 2436) {
+                        return true;
+                    }
+                    return false;
                 }
-            } else {
-                // as seen generally, on the bottom most scroll Safari bottom nav puts the page in overscroll mode messing up the top location all together
-                // this overscrolling is usually equivalent to half the banner size. We can update the logic based on the nav bar height as it will be the same in every iPhoneX
-                window.parent.document.getElementById('branch-banner-iframe').style.top = ((window.innerHeight - window.parent.document.getElementById('branch-banner-iframe').offsetHeight) + 
-                (window.parent.document.getElementById('branch-banner-iframe').offsetHeight) / 2) + "px";
-            }
-        }
-
-        window.addEventListener("scroll", function () {
-            document.getElementById("valvak").innerHTML = window.innerHeight + ' - '
-                + window.parent.document.getElementById('branch-banner-iframe').style.top + ' - '
-                + (window.innerHeight - window.parent.document.getElementById('branch-banner-iframe').offsetHeight) + ' - '
-                + window.pageYOffset + ' - '
-                + document.body.scrollHeight;
-            if (window.pageYOffset > window.innerHeight) {
-                resetBannerPosition(false);
-            } else {
-                resetBannerPosition(true);
-            }
-        });
-
-        function detectiPhoneX() {
-            var ratio = window.devicePixelRatio || 1;
-            var screen = {
-                width: window.screen.width * ratio,
-                height: window.screen.height * ratio
-            };
-
-            // iPhone X Detection
-            if (screen.width == 1125 && screen.height === 2436) {
-                return true;
-            }
-            return false;
-        }
 
             //elem.scrollIntoView(top);
 
@@ -192,7 +222,7 @@
         //     resetBannerPosition();
         //  }
 
-    </script>
+    </script> -->
 
 </body>
 
