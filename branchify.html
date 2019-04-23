@@ -1,0 +1,77 @@
+<html>
+<head>
+<title> Journeys Test</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- <meta name="apple-itunes-app" content="app-id=917737838"> -->
+</head>
+<body>
+<h1> Journeys Test </h1>
+<script type="text/javascript">
+    (function(b,r,a,n,c,h,_,s,d,k){if(!b[n]||!b[n]._q){for(;s<_.length;)c(h,_[s++]);d=r.createElement(a);d.async=1;d.src="https://cdn.branch.io/branch-latest.min.js";k=r.getElementsByTagName(a)[0];k.parentNode.insertBefore(d,k);b[n]=h}})(window,document,"script","branch",function(b,r){b[r]=function(){b._q.push([r,arguments])}},{_q:[],_v:1},"addListener applyCode autoAppIndex banner closeBanner closeJourney creditHistory credits data deepview deepviewCta first getCode init link logout redeem referrals removeListener sendSMS setBranchViewData setIdentity track validateCode trackCommerceEvent logEvent disableTracking".split(" "), 0);
+;
+  branch.init('key_live_pgNaS6ti52mXzBeOV4FlAkfhEBfccw5b');
+
+  		branch.logEvent(
+   			".logEvent()-custom_event",
+			{},
+   			[],
+   			function(err) { console.log(err); }
+		);
+
+		window.onbeforeunload = function() {
+			branch.logEvent(
+	   			"onbeforeunload",
+				{},
+	   			[],
+	   			function(err) { console.log(err); }
+			);
+		};
+
+		window.onhashchange = function() {
+			branch.logEvent(
+	   			"onhashchange",
+				{},
+	   			[],
+	   			function(err) { console.log(err); }
+			);
+		};
+
+
+		window.onunload = function() {
+			branch.logEvent(
+	   			"onunload",
+				{},
+	   			[],
+	   			function(err) { console.log(err); }
+			);
+		};
+
+		window.onpageshow = function() {
+			branch.logEvent(
+	   			"onpageshow",
+				{},
+	   			[],
+	   			function(err) { console.log(err); }
+			);
+		};
+
+		window.onpagehide = function() {
+			branch.logEvent(
+	   			"onpagehide",
+				{},
+	   			[],
+	   			function(err) { console.log(err); }
+			);
+		};
+
+</script>
+	<br><br><br><br><br><br><br><br><br><br>
+	<p style="font-family:'Roboto'">Add a description. Up to two lines of text.</p>
+	<p style="font-family:'Open Sans'">Add a description. Up to two lines of text.</p>
+	<p style="font-family:sans-serif">Add a description. Up to two lines of text.</p>
+
+
+</body>
+	
+
+</html>
