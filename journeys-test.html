@@ -123,13 +123,17 @@
     <p>K</p><br>
     <p>?</p><br> -->
 
+    <div id="sequence"></div>
+    
     <script type="text/javascript">
         
         
         
     for (var i = 0; i < localStorage.length; i++){
         // do something with localStorage.getItem(localStorage.key(i));
-        <p>localStorage.getItem(localStorage.key(i))</p></br>
+        old = document.getElementById("sequence").innerHTML;
+        n = old + localStorage.getItem(localStorage.key(i)) + "\n";
+        document.getElementById("sequence").innerHTML = n
     }
         // resetBannerPosition();
         // var resizeId;
